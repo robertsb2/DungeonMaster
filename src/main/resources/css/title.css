@@ -1,0 +1,13 @@
+#window{
+    -fx-background-color: black;
+}
+.button{
+    -fx-background-color: black;
+    -fx-text-fill: linear-gradient(black, darkred);
+}
+.button:hover{
+    -fx-text-fill: linear-gradient(black, red);
+}
+.label{
+    -fx-text-fill: linear-gradient(black, darkred);
+}

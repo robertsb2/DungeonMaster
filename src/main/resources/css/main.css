@@ -1,0 +1,58 @@
+#window{
+    -fx-background-color: black;
+}
+.button{
+    -fx-background-color: black;
+    -fx-text-fill: darkred;
+}
+.button:hover{
+    -fx-text-fill: red;
+}
+.button:disabled{
+    -fx-text-fill: darkred;
+}
+.label{
+    -fx-text-fill: darkred;
+}
+.list-view{
+    -fx-background-color: black;
+    -fx-font-size: 22px;
+    -fx-padding: 0px;
+}
+
+.list-cell{
+    -fx-background-color: black;
+    -fx-text-fill: darkred;
+
+}
+.list-cell:filled:hover {
+    -fx-text-fill: red;
+}
+
+#box{
+    -fx-border-width: 1px;
+    -fx-border-color: darkgrey;
+}
+
+
+#bar{
+    -fx-accent: green;
+    -fx-text-fill: black;
+}
+
+#rightPane{
+    -fx-background-color: black;
+    -fx-text-fill: red;
+}
+
+.text-area{
+    -fx-control-inner-background: black;
+    -fx-text-fill: darkred;
+    -fx-font-size: 18px;
+}
+#inventory{
+    -fx-font-size: 16px;
+    -fx-border-width: 1px;
+    -fx-border-color: darkgrey;
+
+}

@@ -1,0 +1,16 @@
+#window{
+    -fx-background-color: black;
+}
+.button{
+    -fx-background-color: black;
+    -fx-text-fill: darkred;
+}
+.button:hover{
+    -fx-text-fill: red;
+}
+.label{
+    -fx-text-fill: darkred;
+}
+.text-field{
+    -fx-background-color: dimgrey;
+}

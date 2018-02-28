@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" stylesheets="/css/layout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+   <children>
+      <TextArea fx:id="text" layoutX="124.0" layoutY="52.0" prefHeight="398.0" prefWidth="659.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="221.0" layoutY="578.0" mnemonicParsing="false" onAction="#displayText" text="Continue" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="235.0" />
+      <Button layoutX="678.0" layoutY="578.0" mnemonicParsing="false" onAction="#next" text="Skip" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+   </children>
+</AnchorPane>

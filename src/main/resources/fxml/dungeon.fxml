@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" stylesheets="/css/layout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+   <children>
+      <VBox prefHeight="450.0" prefWidth="225.0">
+         <children>
+            <AnchorPane prefHeight="604.0" prefWidth="225.0">
+               <children>
+                  <Label fx:id="name" layoutX="10.0" layoutY="5.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="strength" layoutX="10.0" layoutY="65.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="defense" layoutX="10.0" layoutY="85.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar fx:id="healthBar" layoutX="5.0" layoutY="25.0" maxHeight="-Infinity" minHeight="-Infinity" opacity="0.51" prefHeight="21.0" prefWidth="100.0" progress="1.0" />
+                  <Label fx:id="currHealth" layoutX="39.0" layoutY="26.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gold" layoutX="10.0" layoutY="105.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pieces" layoutX="10.0" layoutY="125.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+      <HBox layoutY="450.0" prefHeight="250.0" prefWidth="900.0">
+         <children>
+            <AnchorPane prefHeight="250.0" prefWidth="970.0">
+               <children>
+                  <Button fx:id="button" layoutX="550.0" layoutY="50.0" mnemonicParsing="false" onAction="#setImage" prefHeight="30.0" prefWidth="100.0" text="Explore">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Accordion layoutX="52.0" layoutY="-1.0" />
+                <TitledPane animated="false" layoutX="25.0" layoutY="25.0" prefHeight="200.0" prefWidth="225.0" text="Items">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <content>
+                        <VBox fx:id="listBox" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ListView fx:id="listView" onMouseClicked="#test" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <Button fx:id="button1" layoutX="725.0" layoutY="50.0" mnemonicParsing="false" onAction="#setImage" prefHeight="30.0" prefWidth="100.0" text="Go Upstairs">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button11" layoutX="550.0" layoutY="175.0" mnemonicParsing="false" onAction="#setImage" prefHeight="30.0" prefWidth="100.0" text="Exit Dungeon">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button12" layoutX="725.0" layoutY="175.0" mnemonicParsing="false" onAction="#setImage" prefHeight="30.0" prefWidth="100.0" text="Save and Quit">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></HBox>
+      <VBox layoutX="225.0" prefHeight="450.0" prefWidth="450.0">
+         <children>
+            <Canvas fx:id="mainCanvas" height="446.0" width="450.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="675.0" prefHeight="450.0" prefWidth="225.0">
+         <children>
+            <AnchorPane fx:id="output" prefHeight="604.0" prefWidth="225.0">
+               <children>
+                  <Label fx:id="montster" layoutX="10.0" layoutY="5.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="monStrength" layoutX="10.0" layoutY="65.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="monDefense1" layoutX="10.0" layoutY="85.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar fx:id="healthBar1" layoutX="5.0" layoutY="25.0" maxHeight="-Infinity" minHeight="-Infinity" opacity="0.51" prefHeight="21.0" prefWidth="100.0" progress="1.0" />
+                  <Label fx:id="monHealth" layoutX="39.0" layoutY="26.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+#window{
+    -fx-background-color: black;
+
+}
+.button{
+    -fx-background-color: black;
+    -fx-text-fill: darkred;
+    -fx-font-size: 30px;
+}
+.button:hover{
+    -fx-text-fill: red;
+}
+
+.text-area{
+    -fx-control-inner-background: black;
+    -fx-text-fill: red;
+    -fx-font-size: 18px;
+}
