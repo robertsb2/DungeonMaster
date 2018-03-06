@@ -76,11 +76,7 @@ public class Monster extends Creature{
     }
 
     public void setImage(String path) {
-        try {
-            this.image = new Image(new FileInputStream(path));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.image = new Image(String.valueOf(getClass().getResource(path)));
     }
 
     public Image getImage() {

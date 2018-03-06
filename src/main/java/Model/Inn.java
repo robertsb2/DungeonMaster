@@ -23,8 +23,7 @@ public class Inn implements Store {
     @Override
     public void setInventory(Item[] items) {
         for (Item item : items){
-            listItems.add(item.getName() + " " + item.getCost() + "\n" +
-                    "     -" + item.getDescription());
+            listItems.add(item.getName());
         }
     }
 

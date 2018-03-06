@@ -22,8 +22,6 @@ import java.util.ResourceBundle;
 
 public class SaveSelectController implements Initializable {
 
-    public SaveSelectController() {
-    }
     private ArrayList<Savable> saveData;
     private final ObservableList<String> savedGames = FXCollections.observableArrayList();
     private GameController gameController;
@@ -35,7 +33,11 @@ public class SaveSelectController implements Initializable {
     @FXML
     private ListView saveFiles;
 
-
+    /**
+     * Runs initial setup for the scene
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gameController = Main.getGameController();
@@ -60,16 +62,16 @@ public class SaveSelectController implements Initializable {
         }
     }
 
-    public void activateButtons(){
+    @FXML
+    private void activateButtons(){
         if (!saveFiles.getSelectionModel().isEmpty()){
             load.setDisable(false);
             delete.setDisable(false);
         }
     }
 
-
     @FXML
-    public void newGame() throws IOException {
+    private void newGame() throws IOException {
         Stage stage = Main.getStage();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/newGame.fxml"));
         stage.setScene(new Scene(root));
@@ -77,7 +79,7 @@ public class SaveSelectController implements Initializable {
     }
 
     @FXML
-    public void load() throws IOException {
+    private void load() throws IOException {
         gameController.loadHero(saveFiles.getSelectionModel().getSelectedItem().toString());
         Stage stage = Main.getStage();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/base.fxml"));
@@ -86,7 +88,7 @@ public class SaveSelectController implements Initializable {
     }
 
     @FXML
-    public void delete() throws IOException {
+    private void delete() throws IOException {
         gameController.setDeleteHero(saveFiles.getSelectionModel().getSelectedItem().toString());
         Stage alert = new Stage();
         Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/alert.fxml"));

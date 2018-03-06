@@ -18,13 +18,19 @@ public class newGameController implements Initializable{
 
     private GameController gameController;
 
+    /**
+     * Runs initial setup for the scene
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gameController = Main.getGameController();
 
     }
 
-    public void start() throws IOException {
+    @FXML
+    private void start() throws IOException {
         gameController.newHero(name.getCharacters().toString());
         Stage stage = Main.getStage();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/intro.fxml"));

@@ -16,31 +16,38 @@ import java.util.ResourceBundle;
 public class introController implements Initializable{
     private int DIALOGUE_FILE_COUNT = 1;
     private final int MAX_FILES = 2;
+    private Utilities utilities = new Utilities();
 
     @FXML
     private TextArea text;
 
-    public void displayText() throws IOException {
+    /**
+     * Runs initial setup for the scene
+     * @param location
+     * @param resources
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        text.setWrapText(true);
+        text.setText(utilities.reader("dialogue/Intro" + DIALOGUE_FILE_COUNT + ".txt"));
+
+    }
+
+    @FXML
+    private void displayText() throws IOException {
+        DIALOGUE_FILE_COUNT++;
         if(DIALOGUE_FILE_COUNT <= MAX_FILES) {
-            text.appendText(Utilities.reader("src/main/resources/dialogue/Intro" + DIALOGUE_FILE_COUNT + ".txt"));
-            text.appendText("\n");
-            text.appendText("\n");
-            DIALOGUE_FILE_COUNT++;
+            text.setText(utilities.reader("dialogue/Intro" + DIALOGUE_FILE_COUNT + ".txt"));
         } else {
             next();
         }
     }
 
-    public void next() throws IOException {
+    @FXML
+    private void next() throws IOException {
         Stage stage = Main.getStage();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/base.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        text.setWrapText(true);
-        text.setDisable(true);
     }
 }

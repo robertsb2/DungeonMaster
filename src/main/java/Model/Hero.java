@@ -11,24 +11,25 @@ public class Hero extends Creature implements Serializable{
     private double maxHealth;
     private double curHealth;
     private int gold;
-    private int pieces;
+    private double xp;
     private Pack pack;
     private Weapon weapon;
     private boolean hasQuest = false;
+    private int level = 1;
 
 
 
     public Hero() {
     }
 
-    public Hero(String name, int strength, int defense, double maxHealth, double curHealth, int gold, int pieces) {
+    public Hero(String name, int strength, int defense, double maxHealth, double curHealth, int gold, double xp) {
         this.setName(name);
         this.setStrength(strength);
         this.setDefense(defense);
         this.setMaxHealth(maxHealth);
         this.setCurHealth(curHealth);
         this.setGold(gold);
-        this.setPieces(pieces);
+        this.setXp(xp);
         this.setPack(new Pack());
         this.setWeapon(new Weapon("Dagger","Attack Power +1",10,1));
     }
@@ -54,7 +55,7 @@ public class Hero extends Creature implements Serializable{
     }
 
     public void setStrength(int strength) {
-        this.strength = strength;
+        this.strength += strength;
     }
 
     public int getDefense() {
@@ -62,7 +63,7 @@ public class Hero extends Creature implements Serializable{
     }
 
     public void setDefense(int defense) {
-        this.defense = defense;
+        this.defense += defense;
     }
 
     public double getMaxHealth() {
@@ -70,7 +71,7 @@ public class Hero extends Creature implements Serializable{
     }
 
     public void setMaxHealth(double maxHealth) {
-        this.maxHealth = maxHealth;
+        this.maxHealth += maxHealth;
     }
 
     public double getCurHealth() {
@@ -78,7 +79,7 @@ public class Hero extends Creature implements Serializable{
     }
 
     public void setCurHealth(double curHealth) {
-        this.curHealth = this.curHealth + curHealth;
+        this.curHealth += curHealth;
         if (this.curHealth >  this.maxHealth){
             this.curHealth = this.maxHealth;
         }
@@ -89,15 +90,29 @@ public class Hero extends Creature implements Serializable{
     }
 
     public void setGold(int gold) {
-        this.gold = this.gold + gold;
+        this.gold += gold;
     }
 
-    public int getPieces() {
-        return pieces;
+    public double getXp() {
+        return xp;
     }
 
-    public void setPieces(int pieces) {
-        this.pieces = pieces;
+    public void setXp(double xp) {
+        this.xp += xp;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void levelUp() {
+        this.level++;
+        if (this.getLevel()%2 == 0){
+            this.setStrength(1);
+        } else {
+            this.setDefense(1);
+        }
+        this.setXp(-this.getXp());
     }
 
     public Pack getPack() {
@@ -123,6 +138,6 @@ public class Hero extends Creature implements Serializable{
                 "Defense: " + this.getDefense() + " " +
                 "Health: " + this.getCurHealth() + " " +
                 "Gold: " + this.getGold() + " " +
-                "Talisman Pieces " + this.getPieces();
+                "Talisman Pieces " + this.getXp();
     }
 }

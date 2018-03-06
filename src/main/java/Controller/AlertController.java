@@ -2,25 +2,24 @@ package Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class AlertController {
 
     @FXML
-    public Button confirm;
+    private Button confirm;
+
+    private GameController gameController = Main.getGameController();
+
     @FXML
-    public Button cancel;
-
-    GameController gameController = Main.getGameController();
-
-    public void confirm(MouseEvent mouseEvent){
+    private void confirm(){
         gameController.deleteHero();
         Stage stage = (Stage) confirm.getScene().getWindow();
         stage.close();
     }
 
-    public void cancel(MouseEvent mouseEvent) {
+    @FXML
+    private void cancel() {
         Stage stage = (Stage) confirm.getScene().getWindow();
         stage.close();
     }

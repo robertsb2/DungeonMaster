@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane id="window" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../css/title.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TitleController">
+   <children>
+      <Label layoutX="209.0" layoutY="100.0" text="Dungeon Master">
+         <font>
+            <Font name="Impact" size="72.0" />
+         </font>
+      </Label>
+      <Button fx:id="start" alignment="CENTER_RIGHT" layoutX="316.0" layoutY="389.0" mnemonicParsing="false" onAction="#gameSelect" text="START">
+         <font>
+            <Font size="64.0" />
+         </font></Button>
+      <Button fx:id="exit" alignment="CENTER_RIGHT" layoutX="344.0" layoutY="514.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

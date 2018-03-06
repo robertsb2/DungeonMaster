@@ -18,9 +18,7 @@ public class Potion extends Item implements Serializable{
 
     public void useItem(Creature creature) {
         if(creature instanceof Hero){
-            double temp = ((Hero) creature).getCurHealth();
-            temp = temp + recoveryAmount;
-            ((Hero) creature).setCurHealth(temp);
+            ((Hero) creature).setCurHealth(recoveryAmount);
         }
 
     }

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
-
-
 <AnchorPane id="window" prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="Controller.AlertController" stylesheets="/css/alert.css">
    <children>
       <Label layoutX="37.0" layoutY="101.0" nodeOrientation="LEFT_TO_RIGHT" text="You are about to send this hero to eternal darkness." wrapText="true" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="50.0" />
       <Button fx:id="confirm" layoutX="118.0" layoutY="239.0" mnemonicParsing="false" text="No Regrets" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="80.0" onMouseClicked="#confirm"/>
-      <Button fx:id="cancel" layoutX="434.0" layoutY="239.0" mnemonicParsing="false" text="Never mind" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="80.0" onMouseClicked="#cancel"/>
+      <Button layoutX="434.0" layoutY="239.0" mnemonicParsing="false" text="Never mind" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="80.0" onMouseClicked="#cancel"/>
    </children>
 </AnchorPane>

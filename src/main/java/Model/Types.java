@@ -1,18 +1,16 @@
 package Model;
 
-import javafx.scene.image.Image;
-
 public enum Types {
     //TYPE("name", Health, Strength, Defense, Escape Requirement,imageX, imageY, width, height)
-    GOBLIN("Goblin", 20, 8, 8, 10,"src/main/resources/Images/goblin.png",220,255,200,206),
-    ZOMBIE("Zombie", 25, 10, 11, 12,"src/main/resources/Images/zombie.png",230,200,129,250),
-    BANSHEE("Banshee", 20, 12, 12, 14,"src/main/resources/Images/banshee.png",210,80,225,250),
-    VAMPIRE("Vampire", 23, 14, 13, 16,"src/main/resources/Images/vampire.png",230,170,127,250),
-    GHOUL("Ghoul", 25, 16, 14, 18,"src/main/resources/Images/ghoul.png",210,190,96,225),
-    SPIDER("Spider", 28, 18, 15, 20,"src/main/resources/Images/spider.png",80,80,360,400),
-    MINOTAUR("Minotaur", 30, 20, 16, 22,"src/main/resources/Images/minotaur.png",80,100,250,300),
-    CYCLOPS("Cyclops", 35, 22, 18, 24,"src/main/resources/Images/cyclops.png",40,80,344,350),
-    DEMON("Demon", 100, 26, 25, 999,"src/main/resources/Images/demon.png",180,140,283,300);
+    GOBLIN("Goblin", 20, 8, 8, 10,"/Images/goblin.png",220,255,200,206),
+    ZOMBIE("Zombie", 25, 10, 11, 12,"/Images/zombie.png",230,200,129,250),
+    BANSHEE("Banshee", 20, 12, 12, 14,"/Images/banshee.png",210,80,225,250),
+    VAMPIRE("Vampire", 23, 14, 13, 16,"/Images/vampire.png",230,170,127,250),
+    GHOUL("Ghoul", 25, 16, 14, 18,"/Images/ghoul.png",210,190,96,225),
+    SPIDER("Spider", 28, 18, 15, 20,"/Images/spider.png",80,80,360,400),
+    MINOTAUR("Minotaur", 30, 20, 16, 22,"/Images/minotaur.png",80,100,250,300),
+    CYCLOPS("Cyclops", 35, 22, 18, 24,"/Images/cyclops.png",40,80,344,350),
+    DEMON("Demon", 100, 26, 25, 999,"/Images/demon.png",180,140,283,300);
 
     public final String type;
     public final int health;

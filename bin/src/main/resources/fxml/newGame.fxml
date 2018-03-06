@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="window" prefHeight="700.0" prefWidth="900.0" stylesheets="/css/newGame.css" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.newGameController">
+   <children>
+      <Label layoutX="356.0" layoutY="140.0" text="Enter Name">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="375.0" layoutY="300.0" />
+      <Button fx:id="start" alignment="CENTER" layoutX="374.5" layoutY="350" mnemonicParsing="false" text="START" onMouseClicked="#start">
+         <font>
+            <Font size="36.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

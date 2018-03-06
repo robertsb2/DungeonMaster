@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="window" prefHeight="700.0" prefWidth="900.0" stylesheets="/css/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BaseController">
+<AnchorPane id="window" fx:id="window" onKeyPressed="#showMenu" prefHeight="700.0" prefWidth="900.0" stylesheets="/css/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BaseController">
    <children>
       <VBox id="box" prefHeight="450.0" prefWidth="225.0">
          <children>
@@ -18,32 +18,33 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="strength" layoutX="5.0" layoutY="75.0" text="Label">
+                  <Label fx:id="strength" layoutX="5.0" layoutY="102.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="defense" layoutX="5.0" layoutY="110.0" text="Label">
+                  <Label fx:id="defense" layoutX="5.0" layoutY="137.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <ProgressBar id="bar" fx:id="healthBar" layoutX="5.0" layoutY="25.0" maxHeight="-Infinity" minHeight="-Infinity" opacity="0.51" prefHeight="35.0" prefWidth="100.0" progress="1.0" AnchorPane.topAnchor="40.0" />
-                  <Label id="bar" fx:id="health" layoutX="25.0" layoutY="45.0" text="Label">
+                  <ProgressBar id="bar" fx:id="healthBar" layoutX="5.0" layoutY="25.0" maxHeight="-Infinity" minHeight="-Infinity" opacity="0.51" prefHeight="35.0" prefWidth="200.0" progress="1.0" AnchorPane.topAnchor="40.0" />
+                  <Label id="bar" fx:id="health" layoutX="79.0" layoutY="44.0" text="Label">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gold" layoutX="5.0" layoutY="145.0" text="Label">
+                  <Label fx:id="gold" layoutX="5.0" layoutY="172.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pieces" layoutX="5.0" layoutY="180.0" text="Label">
+                  <Label fx:id="weapon" layoutX="5.0" layoutY="240.0" text="Label" AnchorPane.leftAnchor="5.0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
+                  <ProgressBar id="xpBar" layoutX="5.0" layoutY="76.0" minHeight="-Infinity" prefHeight="10.0" prefWidth="200.0" progress="0.0" AnchorPane.leftAnchor="5.0" fx:id="xpBar" />
                </children>
             </AnchorPane>
          </children>
@@ -110,12 +111,13 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <ProgressBar id="bar" fx:id="monsterHealthBar" layoutX="5.0" layoutY="25.0" maxHeight="-Infinity" minHeight="-Infinity" opacity="0.51" prefHeight="35.0" prefWidth="100.0" progress="1.0" AnchorPane.topAnchor="40.0" />
-                              <Label id="bar" fx:id="monsterHealth" layoutX="25.0" layoutY="45.0" text="Label">
+                              <ProgressBar id="bar" fx:id="monsterHealthBar" layoutX="5.0" layoutY="25.0" maxHeight="-Infinity" minHeight="-Infinity" opacity="0.51" prefHeight="35.0" prefWidth="200.0" progress="1.0" AnchorPane.topAnchor="40.0" />
+                              <Label id="bar" fx:id="monsterHealth" layoutX="79.0" layoutY="44.0" text="Label">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
+                              <TextArea fx:id="combatOutput" editable="false" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
                               <Button mnemonicParsing="false" onAction="#fight" text="Fight" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0">
                                  <font>
                                     <Font size="18.0" />
@@ -134,8 +136,8 @@
                      <children>
                         <AnchorPane id="rightPane" prefHeight="604.0" prefWidth="225.0">
                            <children>
-                              <TextArea id="rightPane" editable="false" prefHeight="450.0" prefWidth="225.0" wrapText="true" AnchorPane.leftAnchor="0.0" />
-                              <Button fx:id="affirmative" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0">
+                              <TextArea id="rightPane" fx:id="encounterText" editable="false" prefHeight="450.0" prefWidth="225.0" wrapText="true" AnchorPane.leftAnchor="0.0" />
+                              <Button fx:id="affirmative" mnemonicParsing="false" text="Pray" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -153,7 +155,7 @@
                      <children>
                         <AnchorPane id="rightPane" prefHeight="600.0" prefWidth="225.0">
                            <children>
-                              <ListView id="inventory" fx:id="inventory" prefHeight="375.0" prefWidth="225.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" onMouseClicked="#purchase"/>
+                              <ListView id="inventory" fx:id="inventory" onMouseClicked="#purchase" prefHeight="375.0" prefWidth="225.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               <TextArea id="rightPane" fx:id="dialogue" editable="false" prefHeight="159.0" prefWidth="225.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="375.0" />
                            </children>
                         </AnchorPane>
@@ -163,5 +165,42 @@
             </AnchorPane>
          </children>
       </VBox>
+      <StackPane id="menu" fx:id="menu" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <Button layoutX="385.0" layoutY="90.0" mnemonicParsing="false" onAction="#toggleMenu" text="Continue" AnchorPane.leftAnchor="385.0" AnchorPane.rightAnchor="385.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button layoutX="385.0" layoutY="190.0" mnemonicParsing="false" onAction="#save" text="Save &amp; Continue" AnchorPane.leftAnchor="345.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button layoutX="385.0" layoutY="290.0" mnemonicParsing="false" onAction="#saveQuit" text="Save &amp; Quit" AnchorPane.leftAnchor="370.5">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane id="gameOver" fx:id="gameOverPanel" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <Label fx:id="end" layoutX="331.0" layoutY="179.0" text="Game Over" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="331.0">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                   <Button layoutX="385.0" layoutY="340.0" mnemonicParsing="false" onAction="#restart" text="Ok" AnchorPane.leftAnchor="370.5" AnchorPane.rightAnchor="370.5">
+                       <font>
+                           <Font size="24.0" />
+                       </font></Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

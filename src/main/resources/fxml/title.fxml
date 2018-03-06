@@ -16,13 +16,18 @@
             <Font name="Impact" size="72.0" />
          </font>
       </Label>
-      <Button fx:id="start" alignment="CENTER_RIGHT" layoutX="316.0" layoutY="389.0" mnemonicParsing="false" onAction="#gameSelect" text="START">
+      <Button alignment="CENTER_RIGHT" layoutX="350.0" layoutY="323.0" mnemonicParsing="false" onAction="#gameSelect" text="START" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
          <font>
-            <Font size="64.0" />
+            <Font size="48.0" />
          </font></Button>
-      <Button fx:id="exit" alignment="CENTER_RIGHT" layoutX="344.0" layoutY="514.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
+      <Button fx:id="exit" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="527.0" mnemonicParsing="false" onAction="#exit" text="EXIT" AnchorPane.leftAnchor="365.0" AnchorPane.rightAnchor="365.0">
          <font>
-            <Font size="64.0" />
+            <Font size="48.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER_RIGHT" layoutX="263.0" layoutY="425.0" mnemonicParsing="false" onAction="#tutorial" text="HOW TO PLAY" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="263.0">
+         <font>
+            <Font size="48.0" />
          </font>
       </Button>
    </children>
