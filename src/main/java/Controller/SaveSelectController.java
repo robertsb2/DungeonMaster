@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Hero;
 import Model.Savable;
+import Model.rooms.SoundPlayer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,6 +26,7 @@ public class SaveSelectController implements Initializable {
     private ArrayList<Savable> saveData;
     private final ObservableList<String> savedGames = FXCollections.observableArrayList();
     private GameController gameController;
+    private SoundPlayer soundPlayer;
 
     @FXML
     private Button load;
@@ -41,6 +43,7 @@ public class SaveSelectController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gameController = Main.getGameController();
+        soundPlayer = Main.getSoundPlayer();
         updateList();
     }
 

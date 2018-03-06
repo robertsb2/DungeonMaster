@@ -1,28 +1,19 @@
 package Controller;
 
-import Model.Utilities;
+import Model.rooms.SoundPlayer;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.TitledPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 
-import javax.rmi.CORBA.Util;
-import java.awt.event.KeyEvent;
-import java.io.File;
 import java.io.IOException;
 
 public class Main extends Application{
     private static Stage primaryStage;
     private static GameController gameController;
-    private Utilities utilities = new Utilities();;
+    private static SoundPlayer soundPlayer= new SoundPlayer();
 
     /**
      * Program entry point
@@ -58,10 +49,10 @@ public class Main extends Application{
         stage.setOnCloseRequest(event -> gameController.save());
         stage.show();
 
+    }
 
-
-
-
+    public static SoundPlayer getSoundPlayer() {
+        return soundPlayer;
     }
 
     static void exit(){

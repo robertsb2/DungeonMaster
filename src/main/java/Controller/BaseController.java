@@ -1,30 +1,28 @@
 package Controller;
 
-        import Model.*;
-        import Model.rooms.*;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.FXMLLoader;
-        import javafx.fxml.Initializable;
-        import javafx.scene.Parent;
-        import javafx.scene.Scene;
-        import javafx.scene.canvas.Canvas;
-        import javafx.scene.canvas.GraphicsContext;
-        import javafx.scene.control.*;
-        import javafx.scene.image.Image;
-        import javafx.scene.input.KeyCode;
-        import javafx.scene.input.KeyEvent;
-        import javafx.scene.layout.StackPane;
-        import javafx.stage.Stage;
+import Model.*;
+import Model.rooms.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-        import javax.rmi.CORBA.Util;
-        import java.io.IOException;
-        import java.net.URL;
-        import java.util.ArrayList;
-        import java.util.Collections;
-        import java.util.ResourceBundle;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.ResourceBundle;
 
 public class BaseController implements Initializable {
 
@@ -40,7 +38,7 @@ public class BaseController implements Initializable {
     private Blacksmith blacksmith;
     private Inn inn;
     private PotionShop potionShop;
-    private Utilities utilities = new Utilities();
+    private SoundPlayer soundPlayer;
 
 
     @FXML
@@ -114,9 +112,9 @@ public class BaseController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Utilities.stop();
         menu.setVisible(false);
         gameController = Main.getGameController();
+        soundPlayer = Main.getSoundPlayer();
         hero = gameController.getHero();
         pack = hero.getPack();
         gc = mainCanvas.getGraphicsContext2D();
@@ -172,12 +170,6 @@ public class BaseController implements Initializable {
             monsterHealth.setText(monster.getCurrHealth() + "/" + monster.getMaxHealth());
             monsterHealthBar.setProgress(monster.getCurrHealth()/monster.getMaxHealth());
         }
-
-        if (hero.getCurHealth() < 10){
-            utilities.playSound("/Audio/heartbeat.mp3", false);
-        }
-
-
         itemList.setItems(items);
         if (!gameController.isAlive()){
             gameOver();
@@ -306,6 +298,7 @@ public class BaseController implements Initializable {
 
     private void toTown(){
         Image village = new Image(String.valueOf(getClass().getResource("/Images/village.jpg")));
+        soundPlayer.musicTransition("/Audio/market.wav",true,true, 1);
         gc.drawImage(village,0,0,PICTURE_DIM,PICTURE_DIM);
         Store[] shops = gameController.getShops();
         blacksmith = (Blacksmith) shops[0];
@@ -320,8 +313,12 @@ public class BaseController implements Initializable {
         bottomLeft.setOnAction(event -> inn());
         bottomRight.setVisible(true);
         bottomRight.setText("Leave");
-        bottomRight.setOnAction(event -> initialize(null,null));
+        bottomRight.setOnAction(event -> fromTown());
+    }
 
+    private void fromTown() {
+        soundPlayer.musicTransition("/Audio/Magna_Ingress_-_01_-_Bloody_Shadows.wav",true,true, 0.5);
+        initialize(null,null);
     }
 
     private void inn() {
@@ -390,6 +387,7 @@ public class BaseController implements Initializable {
     @FXML
     private void purchase() {
         if(gameController.purchase(currentStore,inventory.getSelectionModel().getSelectedItem())) {
+            soundPlayer.playSound("/Audio/coins.wav",false, false, 0.9);
             dialogue.setText("Thank You!");
             update();
         } else {

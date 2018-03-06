@@ -20,7 +20,7 @@ public class GameController {
     private final double INIT_MAXHEALTH = 30;
     private final int INIT_GOLD = 10;
     private final int INIT_PIECES = 0;
-    private Utilities utilities = new Utilities();
+    private SoundPlayer soundPlayer;
 
     private boolean stairs = false;
     private boolean floorCleared;
@@ -39,6 +39,7 @@ public class GameController {
     private boolean fighting = false;
     private Store[] shops;
     private boolean win = false;
+    private boolean frontDoor;
 
 
     GameController() throws IOException, ClassNotFoundException {
@@ -63,6 +64,8 @@ public class GameController {
         Inn inn = new Inn("Welcome. I have some nice beds available.", beds);
         load();
         shops = new Store[]{blacksmith,potionShop,inn};
+        soundPlayer = new SoundPlayer();
+
 
     }
 
@@ -192,6 +195,7 @@ public class GameController {
     }
 
     void resetDungeon() {
+        frontDoor = false;
         floor = 0;
     }
 
@@ -210,6 +214,10 @@ public class GameController {
     }
 
     public Room getRoom() {
+        if(!frontDoor){
+            soundPlayer.playSound("/Audio/doorcls.mp3", false, false, 0.2);
+            frontDoor = true;
+        }
         if(floor == TOP_FLOOR){
             roomType = Rooms.BOSS;
             currentRoom = new BossRoom("Ballroom",roomType.imgPath);
@@ -388,9 +396,9 @@ public class GameController {
         if(attack >= currentMonster.getDefense()) {
             damage = getDamage(currentHero.getStrength(), currentMonster.getDefense(), currentHero.getWeapon().getAttackPower());
             if (Utilities.getRandom(1,2,1) == 1) {
-                utilities.playSound("/Audio/attack.mp3",false);
+                soundPlayer.playSound("/Audio/attack.mp3",false, false, 0.2);
             } else {
-                utilities.playSound("/Audio/attack2.mp3",false);
+                soundPlayer.playSound("/Audio/attack2.mp3",false, false, 0.2);
             }
             playerDamage = damage;
             currentMonster.setCurrHealth(-damage);
@@ -473,4 +481,6 @@ public class GameController {
     boolean isWin() {
         return win;
     }
+
+
 }

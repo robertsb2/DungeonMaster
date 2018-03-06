@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Utilities;
+import Model.rooms.SoundPlayer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TitleController implements Initializable{
-    Utilities utilities = new Utilities();
+    SoundPlayer soundPlayer;
 
     @FXML
     private void gameSelect() {
@@ -31,6 +31,7 @@ public class TitleController implements Initializable{
     @FXML
     private void exit(){
         Main.exit();
+
     }
 
     public void tutorial() {
@@ -47,6 +48,7 @@ public class TitleController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        utilities.playSound("/Audio/Magna_Ingress_-_01_-_Bloody_Shadows.mp3", false);
+        soundPlayer = Main.getSoundPlayer();
+        soundPlayer.playSound("/Audio/Magna_Ingress_-_01_-_Bloody_Shadows.wav", true,true, 0.5);
     }
 }
